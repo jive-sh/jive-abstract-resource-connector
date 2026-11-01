@@ -39,6 +39,14 @@ runResourceCli({
 });
 ```
 
+## Decisions
+
+- A connector is the kind of resource that links Jive to an outside system. Connectors were built on 2026-10-26 as
+  `jive-abstract-connector`, and renamed on 2026-11-01 when resource packages came to be named by their extends path.
+- **A connection is one person's own account on the outside system, not a bot** (Alex, 2026-10-26).
+- **Credential storage and second-factor handling stay pluggable** (Alex, 2026-10-26): a connector stores no
+  credential, and every call that acts as an account is given that account by its caller.
+
 ## Limitations
 
 - `jive create resource connector` is not built: `jive create` does not resolve abstracts yet. Use
